@@ -29,4 +29,4 @@ When Prodigal predicts these doubled sequences, the output is the same set of pr
 ## References
 1. https://www.nature.com/articles/s41564-021-00928-6 (the standard to determine alternative genetic codes of viruses)
 2. https://github.com/hyattpd/Prodigal (Prodigal)
-
+3. https://academic.oup.com/bioinformatics/article/25/11/1422/330687 (biopython)
