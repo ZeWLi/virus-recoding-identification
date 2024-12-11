@@ -51,7 +51,7 @@ def main():
     redo = []
 
     for file in result:
-        name = file.split('.')[0]
+        name = os.path.splitext(file)[0]
         os.system(f'mkdir -p {abs_path}/{name}')
 
         ## deal with sequences less than 20k
@@ -59,14 +59,20 @@ def main():
         length = len(record.seq)
 
         if length > 20000:
+            # use -single is fine
             os.system(f'prodigal -a {abs_path}/{name}/{name}.pro.fa -d {abs_path}/{name}/{name}.gene.fa -i {sys.argv[1]}/{file} -f gff -p single -g {result[file]} -q -m')
 
-        else:
+        elif result[file] != 11:
+            # sequences length less than 20k and recoding
             redo.append(name)
             os.system(f'cat {abs_path_recoding}/{file} {abs_path_recoding}/{file} > temp.fa')
             os.system(f'prodigal -a {abs_path}/{name}/{name}.pro.fa -d {abs_path}/{name}/{name}.gene.fa -i temp.fa -f gff -p single -g {result[file]} -q -m')
 
             os.system('rm temp.fa')
+
+        else:
+            # sequences length less than 20k and use default genetic code
+            os.system(f'prodigal -a {abs_path}/{name}/{name}.pro.fa -d {abs_path}/{name}/{name}.gene.fa -i temp.fa -f gff -p meta -g {result[file]} -q -m')
 
     os.chdir(abs_path)
 
