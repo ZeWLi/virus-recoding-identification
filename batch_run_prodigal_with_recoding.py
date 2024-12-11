@@ -72,7 +72,7 @@ def main():
 
         else:
             # sequences length less than 20k and use default genetic code
-            os.system(f'prodigal -a {abs_path}/{name}/{name}.pro.fa -d {abs_path}/{name}/{name}.gene.fa -i temp.fa -f gff -p meta -g {result[file]} -q -m')
+            os.system(f'prodigal -a {abs_path}/{name}/{name}.pro.fa -d {abs_path}/{name}/{name}.gene.fa -i {sys.argv[1]}/{file} -f gff -p meta -g {result[file]} -q -m')
 
     os.chdir(abs_path)
 
