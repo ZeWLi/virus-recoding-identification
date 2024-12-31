@@ -5,7 +5,7 @@ Sequences with length > 10k and GC content 50 % are selected as candidate sequen
 
 ### 1
 ```
-python /data/lizw/script/genetic_code/select_gc_and_length_cutoff_seq.py all_virus_seq_split recoding
+python select_gc_and_length_cutoff_seq.py all_virus_seq_split recoding
 ```
 ```all_virus_seq_split``` is a directory containing fasta files of single viral sequences
 
@@ -13,7 +13,7 @@ python /data/lizw/script/genetic_code/select_gc_and_length_cutoff_seq.py all_vir
 
 ### 2
 ```
-python /data/lizw/script/genetic_code/batch_run_gff_output_genetic_code.py recoding recoding_file genetic_code_rating.txt
+python batch_run_gff_output_genetic_code.py recoding recoding_file genetic_code_rating.txt
 ```
 ```recoding``` is mentioned aboved
 
@@ -23,7 +23,7 @@ python /data/lizw/script/genetic_code/batch_run_gff_output_genetic_code.py recod
 
 ### 3
 ```
-python /data/lizw/script/genetic_code/batch_run_prodigal_with_recoding.py all_virus_seq_split recoding_rating_out.txt prodigal_out
+python batch_run_prodigal_with_recoding.py all_virus_seq_split recoding_rating_out.txt prodigal_out
 ```
 ```all_virus_seq_split``` is above-mentioned
 
